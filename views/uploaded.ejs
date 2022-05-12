@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("templates/head")   %>
+<body>
+    <div class="container mt-5">
+        <table class="table table-success table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+            </thead>
+            <tbody>             
+                <tr>
+                    <th scope="row"><%= data.id %></th>
+                    <td><%= data.nombre %></td>
+                    <td><%= data.desc %></td>
+                    <td><%= data.precio %></td>
+                    <td>$<%= data.stock %></td>
+                    <td><img src=<%= data.img %> width="40" height="40" alt="..."></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container mt-5">
+        <a class="btn btn-primary" href="/api/productos">Ver todos los productos</a>
+    </div>
+</body>
+</html>

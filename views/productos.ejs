@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("templates/head")   %>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Productos</h1>
+    </div>
+    <div class="container mt-5">
+        <div class="row row-cols-2 row-cols-md-4 g-4">
+            <% data.map((x) => { %> 
+                <div class="col">
+                <div class="card h-100">
+                    <img src=<%= x.img %> class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= x.nombre %></h5>
+                    <p class="card-text"><%= x.desc %></p>
+                    <p class="card-text text-center"><strong>$<%= x.precio %></strong></p>
+                    <a href="#" class="btn btn-success">Agregar</a>
+                    </div>
+                </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <a class="btn btn-primary" href="/">Ir a página principal</a>
+    </div>
+</body>
+</html>

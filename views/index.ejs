@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("templates/head")   %>
+<body>
+    <h1 class="text-center p-5">Beinvenidos a mi tienda</h1>
+    <div class="container mt-5 overflow-auto">
+        <table class="table table-success table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+            </thead>
+            <tbody class="overflow-auto" id="caja">
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <div class="container mt-5 d-grid gap-2">
+        <a class="btn btn-primary justify-content-center" href="/api/productos">Ir a productos</a>
+        <form class="d-grid gap-2" action="/api/carrito" method="POST">
+            <button class="btn btn-primary" name="crear">Crear carrito</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div class="container mt-5 border border-dark rounded">
+        <h1 class="text-center">Centro de mensajes</h1>
+        <br>
+        <form onsubmit="return addMessage()">
+            <label class="form-label p-2" for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <br>
+            <div id="c-mensajes" class="bg-secondary overflow-auto" style="--bs-bg-opacity: .5; max-height: 250px;"></div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="texto">Mensaje</label>
+                    <input type="text" name="text" id="text" placeholder="Mensaje" required>
+                    <button type="submit" class="btn btn-primary p-2 m-2">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+</body>
+</html>
