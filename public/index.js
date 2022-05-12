@@ -61,3 +61,11 @@ const renderMs = (data) => {
 
     document.querySelector('#c-mensajes').innerHTML = html
 }
+
+async function sendPost(url) {
+    const response = await fetch(url, {
+        method: 'POST'
+    })
+    return response.json()
+    
+}

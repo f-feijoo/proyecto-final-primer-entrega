@@ -7,6 +7,14 @@ let router = new Router()
 
 
 router.get('/:id?', (req, res) => {
+    let carrito
+    fs.readFile(`./carrito.json`, 'utf-8', (err, data) => {
+        if (err) {
+            res.send({message: 'Error en la consulta'})
+        }else{
+            carro= JSON.parse(data)
+            carrito = carro[carro.length - 1]['id']
+}})
     if(req.params.id){
         fs.readFile(`./productos.json`, 'utf-8', (err, data) => {
             if (err) {
@@ -35,7 +43,7 @@ router.get('/:id?', (req, res) => {
                 if (err) {
                     return({message: 'Error en la consulta'})
                 }else{
-                    res.render('productos', {data: JSON.parse(data)})
+                    res.render('productos', {data: JSON.parse(data), nroC: 'carrito/'+carrito+'/productos'})
                 }
             })
         }

@@ -23,7 +23,7 @@
     <br>
     <div class="container mt-5 d-grid gap-2">
         <a class="btn btn-primary justify-content-center" href="/api/productos">Ir a productos</a>
-        <form class="d-grid gap-2" action="/api/carrito" method="POST">
+        <form class="d-grid gap-2" onsubmit="return sendPost('api/carrito').then(result => {alert(result.message)})">
             <button class="btn btn-primary" name="crear">Crear carrito</button>
         </form>
     </div>

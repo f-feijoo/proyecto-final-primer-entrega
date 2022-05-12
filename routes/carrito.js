@@ -14,7 +14,7 @@ router.get('/:id/productos', (req, res) => {
             let ide = req.params.id
             let resp = obj.find(x => x.id == ide)
             if(resp) {
-                res.render('carrito', {data: resp})
+                res.render('carrito', {data: resp, idC: ide})
             } else {
                 res.send({ error : 'carrito no encontrado' })
             }  
@@ -41,8 +41,7 @@ router.post('/:id/productos', (req, res) => {
                             if(err){
                                 return 'Error al escribir'
                             } else {
-                               console.log('Cargado')
-                               alert(`Producto agregado, id: ${resp.id}`)
+                               res.send({message: `Producto agregado, id: ${resp.id}`})
                             }
                         } )
                     }
@@ -113,7 +112,7 @@ router.delete('/:id/productos/:id_prod', (req, res) => {
             if(index == -1) {
                 res.send({ error : 'carrito no encontrado' })
             } else {
-                let idP = req.params.id_prod
+                let idP = Number.parseInt(req.params.id_prod)
                 let indexProd = carr[index]['productos'].findIndex(element => element['id'] === idP)
                 if(indexProd == -1) {
                     res.send({ error : 'producto no encontrado' })
@@ -123,7 +122,7 @@ router.delete('/:id/productos/:id_prod', (req, res) => {
                         if(err){
                             return 'Error al escribir'
                         } else {
-                            res.send({delete: 'ok', id: idP})
+                            res.send({message: `Producto con ID ${idP} eliminado.` })
                         }
                     } )
                     }
